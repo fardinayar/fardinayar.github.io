@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: fardinayar.github.io/al-folio/sitemap.xml
+Sitemap: fardinayar.github.io/sitemap.xml

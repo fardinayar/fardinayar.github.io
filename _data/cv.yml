@@ -2,64 +2,57 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
+      value: Fardin Ayar
+    - name: Location
+      value: Tehran, Iran
     - name: Languages
-      value: English, German
+      value: English, Persian
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: M.Sc in Computer Engineering - Artificial Intelligence and Robotics
+      institution: Amirkabir University of Technology, Tehran, Iran
+      year: 2020 - 2023
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+        - GPA: 18.75/20 - Ranked 1st GPA among 22 students
+        - Thesis: Panoptic Segmentation using LiDAR and Camera for Autonomous Vehicles - Best Thesis Award
+    - title: B.Sc in Civil Engineering
+      institution: Shahid Chamran University of Ahvaz, Ahvaz, Iran
+      year: 2015 - 2019
       description:
-        - Description 1.
-        - Description 2.
+        - GPA: 18.04/20 - Ranked 3rd GPA among more than 40 students
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Research Associate
+      institution: Autonomous and Intelligence Systems Lab - Amirkabir University of Technology
+      year: 2024 - Present
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+        - Mentoring, research, and implementation of projects in AISLab
+        - Cross-view Generalization for Large-Scale Neural Radiance Fields
+        - Open-set Scene Graph Generation with VLMs
+        - Auxiliary Modality Learning for AVs
+        - LLM Agents for Autonomous Driving
+        - End-to-end LiDAR Localization
+        - Data-Driven Robot Localization Estimation
+    - title: Part-time Researcher (Remote)
+      institution: Spatial Dynamics Lab - University College Dublin
+      year: 2023 - Present
       description:
-        - Description 1.
-        - Description 2.
-
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
+        - Working on metric monocular depth estimation models for monitoring systems
+    - title: Part-time Researcher
+      institution: Image Processing and Pattern Recognition Lab - Amirkabir University of Technology
+      year: 2022 - 2024
       description:
-
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
+        - Worked primarily on graph neural networks
+        - Several ongoing projects in computer vision and machine learning
+    - title: Computer Vision Engineer Intern
+      institution: Enformity, Tokyo, Japan (remote)
+      year: 2023 - 2024
+      description:
+        - Worked on vehicle-infrastructure cooperative 3D object detection
 
 - title: Open Source Projects
   type: time_table
@@ -71,27 +64,49 @@
 - title: Honors and Awards
   type: time_table
   contents:
-    - year: 1921
+    - year: 2025
       items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
+        - Ranked 3rd: End-to-End Autonomous Driving through V2X Cooperation Challenge of MEIS Workshop @CVPR2025
+    - year: 2024
       items:
-        - Max Planck Medal
+        - Best paper award (Bronze) in International Conference on Intelligent Computing and its Emerging Applications (ICEA2024)
+    - year: 2023
+      items:
+        - Selected as the Exceptionally Talented Student in M.Sc program
+        - Ranked 3rd: Iran Annual AI Award
+    - year: 2022
+      items:
+        - Ranked 2nd: The Fifth National Brain-Computer Interface (BCI) Competition
+        - Ranked 2nd: Rahneshan National Competitions
+    - year: 2019
+      items:
+        - Selected as the Exceptionally Talented Student in B.Sc program
 
 - title: Academic Interests
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Computer Vision
       items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+        - LiDAR-Camera Fusion
+        - Panoptic Segmentation
+        - 3D Object Detection
+        - Depth Estimation
+    - title: Machine Learning
       items:
-        - Description 1.
-        - Description 2.
+        - Deep Learning
+        - Graph Neural Networks
+        - Neural Radiance Fields
+        - Large Language Models
+    - title: Autonomous Systems
+      items:
+        - Autonomous Vehicles
+        - Robot Localization
+        - Scene Understanding
+        - V2X Communication
 
 - title: Other Interests
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - <u>Programming Languages:</u> Python, Java, C++
+    - <u>Libraries and Frameworks:</u> PyTorch, TensorFlow, Detectron2, MMDetection, StableBaseline3, Tianshou, PyTorch-Geometric
+    - <u>Other Tools:</u> Robot Operating System (ROS), Git, Docker, Singularity

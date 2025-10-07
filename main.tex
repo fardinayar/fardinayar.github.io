@@ -1,0 +1,404 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=2 cm, % separation between body and page edge from the top
+    bottom=2 cm, % separation between body and page edge from the bottom
+    left=2 cm, % separation between body and page edge from the left
+    right=2 cm, % separation between body and page edge from the right
+    footskip=1.0 cm, % separation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 79, 144} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Fardin Ayar's CV},
+    pdfauthor={Fardin Ayar},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    % \usepackage[T1]{fontenc} % this breaks sb2nov
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\definecolor{primaryColor}{RGB}{0, 79, 144} % Your existing color
+\definecolor{secondaryColor}{RGB}{100, 100, 100} % Gray for less important info
+\definecolor{accentColor}{RGB}{0, 150, 136} % Teal for highlights
+\definecolor{successColor}{RGB}{46, 125, 50} % Green for achievements
+\definecolor{warningColor}{RGB}{255, 152, 0} % Orange for attention
+
+
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0cm} % set column separation
+\makeatletter
+\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small Page \thepage{}}
+}{}{} % replace number by desired string
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\circ$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0.2 cm + 0.00001 cm
+    }{
+        0.2 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{ }\hspace{\widthof{ }}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{}
+
+    \placelastupdatedtext
+    \begin{header}
+        \textbf{\fontsize{24 pt}{24 pt}\selectfont Fardin Ayar}
+
+        \vspace{0.3 cm}
+
+        \normalsize
+        \mbox{{\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}Tehran, Iran}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{mailto:ayar.fardin@gmail.com}{\color{black}{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}ayar.fardin@gmail.com}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{tel:+90-541-999-99-99}{\color{black}{\footnotesize\faPhone*}\hspace*{0.13cm}+098 910 600 2582}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://scholar.google.com/citations?user=kzNoUpwAAAAJ&hl=en}{\color{black}{\footnotesize\faLink}\hspace*{0.13cm}Google Scholar}}%
+        \kern 0.25 cm%
+        % \AND%
+        % \kern 0.25 cm%
+        % \mbox{\hrefWithoutArrow{https://linkedin.com/in/yourusername}{\color{black}{\footnotesize\faLinkedinIn}\hspace*{0.13cm}yourusername}}%
+        % \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://github.com/fardinayar}{\color{black}{\footnotesize\faGithub}\hspace*{0.13cm}fardinayar}}%
+    \end{header}
+
+    \vspace{0.3 cm - 0.3 cm}
+
+    \section{\textcolor{primaryColor}{Education}}
+        \small
+        \begin{twocolentry}{
+            
+            
+        {Sept. 2020 – Sept. 2023}}
+            \textbf{M.Sc in Computer Engineering - Artificial Intelligence and Robotics}
+            
+            \textit{Amirkabir University of Technology}
+
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item GPA: 18.75/20 - \textbf{Ranked 1st GPA among 22 students}
+                \item Thesis: Panoptic Segmentation using LiDAR and Camera for Autonomous Vehicles - \textbf{Best Thesis Award}
+            \end{highlights}
+        \end{onecolentry}
+        \vspace{0.20 cm}
+        \begin{twocolentry}{
+            
+            
+        {Sept. 2015 – Sept. 2019}}
+            \textbf{B.Sc in Civil Engineering}
+            
+            \textit{Shahid Chamran University of Ahvaz}
+
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item GPA: 18.04/20 - \textbf{Ranked 3rd GPA among more than 40 students}
+            \end{highlights}
+        \end{onecolentry}
+
+        
+
+    
+    \section{\textcolor{primaryColor}{Publications}}
+
+    \small % Smaller font for the entire section
+    \begin{samepage}
+        \begin{onecolentry}
+            \textbf{Identity-preserving Editing of Multiple Facial Attributes by Learning Global Edit Directions and Local Adjustments}
+            \begin{highlights}
+                \item \textcolor{secondaryColor}{N. Mohammadbagheri, \textcolor{black}{\textbf{F. Ayar}}, A. Nickabadi, R. Safabakhsh}
+                \item \textcolor{secondaryColor}{Computer Vision and Image Understanding, Volume 246, September 2024.}
+            \end{highlights}
+        \end{onecolentry}
+
+        \begin{onecolentry}
+            \textbf{LiDAR-Camera Fusion for Video Panoptic Segmentation without Video Training}
+            \begin{highlights}
+                \item \textcolor{secondaryColor}{\textcolor{black}{\textbf{F. Ayar}}, E. Javanmardi, M. Tsukada, M. Javanmardi, M. Rahmati}
+                \item \textcolor{secondaryColor}{International Conference on Intelligent Computing and its Emerging Applications (ICEA2024), Tokyo, Japan, 2024, \textbf{(Best Paper Award (Bronze))}.}
+            \end{highlights}
+        \end{onecolentry}
+
+        \begin{onecolentry}
+            \textbf{Neural Error Covariance Estimation for Precise LIDAR Localization}
+            \begin{highlights}
+                \item \textcolor{secondaryColor}{M. Dolatabadi, \textcolor{black}{\textbf{F. Ayar}}, E. Javanmardi, M. Tsukada, M. Javanmardi}
+                \item \textcolor{secondaryColor}{International Conference on Intelligent Computing and its Emerging Applications (ICEA2024), Tokyo, Japan, 2024.}
+            \end{highlights}
+        \end{onecolentry}
+
+        \begin{onecolentry}
+            \textbf{Where Do You Go? Pedestrian Trajectory Prediction using Scene Features}
+            \begin{highlights}
+                \item \textcolor{secondaryColor}{M. A. Rezaei, \textcolor{black}{\textbf{F. Ayar}}, E. Javanmardi, M. Tsukada, M. Javanmardi}
+            \end{highlights}
+        \end{onecolentry}
+        
+        \begin{onecolentry}
+            \textbf{A Cost-Effective Solution for Traffic Sign Recognition and Geographic Localization Using a Monocular Camera}
+            \begin{highlights}
+                \item \textcolor{secondaryColor}{M. Atyabi, \textcolor{black}{\textbf{F. Ayar}}, M. Javanmardi}
+                \item \textcolor{secondaryColor}{33rd Iranian Conference on Electrical Engineering, Isfahan, Iran, 2025.}
+            \end{highlights}
+        \end{onecolentry}
+        
+        \begin{onecolentry}
+            \textbf{Towards Robust LiDAR Localization: Deep Learning-based Uncertainty Estimation}
+            \begin{highlights}
+                \item \textcolor{secondaryColor}{M. Dolatabadi, \textcolor{black}{\textbf{F. Ayar (equal contribution)}}, E. Javanmardi, M. Tsukada, M. Javanmardi}
+            \end{highlights}
+        \end{onecolentry}
+        
+        \begin{onecolentry}
+            \textbf{Evict3R: Training-Free Token Eviction for Memory-Bounded Streaming Visual Geometry Transformers}
+            \begin{highlights}
+                \item \textcolor{secondaryColor}{S. Mahdi, \textcolor{black}{\textbf{F. Ayar}}, E. Javanmardi, M. Tsukada, M. Javanmardi}
+            \end{highlights}
+        \end{onecolentry}
+        
+        \begin{onecolentry}
+            \textbf{Adapt, Agree, Aggregate: Semi-Supervised Ensemble Labeling for Graph Convolutional Networks}
+            \begin{highlights}
+                \item \textcolor{secondaryColor}{M. Abdolali, R. Zakerian, B. Roshanfekr, \textcolor{black}{\textbf{F. Ayar}}, M. Rahmati}
+                \item \textcolor{secondaryColor}{Submitted to International Journal of Machine Learning and Cybernetics.}
+            \end{highlights}
+        \end{onecolentry}
+        
+    \end{samepage}
+
+        
+    
+    \section*{\textcolor{primaryColor}{Honors \& Awards}}
+    \small
+    \begin{itemize}[leftmargin=0.8cm, itemsep=0pt] % Reduce vertical space between first-level items
+        \item Ranked 3rd: End-to-End Autonomous Driving through V2X Cooperation Challenge of MEIS Workshop @CVPR2025. \hfill 2025
+        
+        \item Best paper award (Bronze) in International Conference on Intelligent Computing and its Emerging Applications (ICEA2024). \hfill 2024
+        
+        \item Selected as the Exceptionally Talented Student in Both B.Sc and M.Sc programs. \hfill 2019, 2023
+
+        \item Top rankings and awards in various AI competitions:
+        \vspace{-0.1cm} % Adjust vertical spacing here
+        \begin{itemize}[leftmargin=1.2cm, itemsep=0pt] % Reduce vertical space between second-level items
+            \small % Make second-level items smaller
+            \item Ranked 2nd: The Fifth National Brain-Computer Interface (BCI) Competition \hfill 2022
+            \item Ranked 2nd: Rahneshan National Competitions \hfill 2022
+            \item Ranked 3rd: Iran Annual AI Award \hfill 2023
+        \end{itemize}
+
+    \end{itemize}
+
+
+    \section*{\textcolor{primaryColor}{Research Experience}}
+        
+        \noindent\textbf{Research Associate} \hfill {June 2024 – Present} \\
+        \textit{Autonomous and Intelligence Systems Lab - Amirkabir University of Technology} \\
+        \noindent Mentoring, research, and implementation of projects in AISLab, including:
+        \begin{itemize}[leftmargin=1.2cm, itemsep=-0.1cm]
+            \item Cross-view Generalization for Large-Scale Neural Radiance Fields 
+            \item Open-set Scene Graph Generation with VLMs 
+            \item Auxiliary Modality Learning for AVs 
+            \item LLM Agents for Autonomous Driving 
+            \item End-to-end LiDAR Localization
+            \item Data-Driven Robot Localization Estimation
+        \end{itemize}
+        
+        \noindent\textbf{Part-time Researcher (Remote)} \hfill {Sept. 2023 – Present} \\
+        \textit{Spatial Dynamics Lab - University College Dublin} \\
+        \noindent Working on metric monocular depth estimation models for monitoring systems. 
+
+        \noindent\textbf{Part-time Researcher} \hfill {Sept. 2022 – Sept. 2024} \\
+        \textit{Image Processing and Pattern Recognition Lab - Amirkabir University of Technology} \\
+        \noindent Worked primarily on graph neural networks, and there are also a few ongoing projects.
+        
+    \section*{\textcolor{primaryColor}{Teaching Assistant}}    
+    \setlist[itemize]{noitemsep, topsep=0pt}
+
+    \begin{itemize}
+        \item \textbf{Amirkabir University of Technology} \hfill {Sept. 2021 – Present}
+        \begin{itemize}
+            \small
+            \item Statistical Pattern Recognition: 1 semester
+            \item Digital Image Processing: 2 semesters
+            \item Practical Machine Learning: 1 semester
+            \item Deep Learning: 4 semesters
+            \item Computer Vision: 2 semesters
+            \item 3D Computer Vision: 3 semesters
+        \end{itemize}
+        
+        \item \textbf{Tehran University} \hfill {Jan. 2023 – Jun. 2023}
+        \begin{itemize}
+            \small
+            \item Advanced Robotics: 1 semester
+        \end{itemize}
+        
+        \item \textbf{Shahid Chamran University of Ahvaz} \hfill {Sept. 2017 – Jan. 2019}
+        \begin{itemize}
+            \small
+            \item Design of Concrete Structures: 3 semesters
+        \end{itemize}
+    \end{itemize}
+
+
+\section*{\textcolor{primaryColor}{Work Experience}}
+    \noindent\textbf{Computer Vision Engineer Intern} \hfill {Nov. 2023 – Jun. 2024} \\
+    \textit{Enformity, Tokyo, Japan (remote)} \\
+    Worked on vehicle-infrastructure cooperative 3D object detection.
+
+\section*{\textcolor{primaryColor}{Invited Talks}}
+    \noindent\textbf{Deep Learning in 3D Computer Vision} \hfill {2025} \\
+    \textit{3D Computer Vision Course - 5 talks}
+    
+    \noindent\textbf{Autonomous Vehicles Workshop: Environment Perception for Autonomous Vehicles} \hfill {Oct. 2023} \\
+    \textit{The 7th International Conference on Internet of Things and Its Applications, Isfahan, Iran}
+    
+
+\section*{\textcolor{primaryColor}{Academic Service}}
+    \noindent\textbf{Peer Review Service} \\
+    \textit{Conferences and Journals:} IROS 2025, ICRA 2025, Knowledge-Based Systems
+    
+    \noindent\textbf{Workshop on Object Detection Algorithms: Theory and Practice} \hfill {Apr. 2022}\\
+    \textit{Amirkabir University of Technology}
+    
+    \noindent\textbf{Graph Neural Networks Bootcamp} \hfill {Sept. 2024}\\
+    \textit{K. N. Toosi University of Technology}
+
+\section*{\textcolor{primaryColor}{Related Skills}}
+\begin{itemize}[leftmargin=0.5cm]
+    \item \textbf{Programming Languages:} Python, Java, C++
+    \item \textbf{Libraries and Frameworks:} PyTorch, TensorFlow, Detectron2, MMDetection, StableBaseline3, Tianshou, PyTorch-Geometric
+    \item \textbf{Other Tools:} Robot Operating System (ROS), Git, Docker, Singularity
+\end{itemize}
+    
+\end{document}

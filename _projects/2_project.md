@@ -1,51 +1,15 @@
 ---
 layout: page
-title: Identity-Preserving Facial Attribute Editing
-description: Learning global edit directions and local adjustments for multiple facial attributes
+title: Object Depth Anything - Monocular Object Depth Estimation
+description: Self-supervised monocular object depth estimation combining MonoDepth2 and DepthAnything
 img: assets/img/3.jpg
 importance: 2
 category: research
 giscus_comments: true
 related_publications: true
+github: https://github.com/fardinayar/object_depth_anything
 ---
 
-This project focuses on developing advanced techniques for identity-preserving facial attribute editing using deep learning approaches. The work addresses the challenge of modifying multiple facial attributes while maintaining the subject's identity.
+Object Depth Anything is an innovative project that combines MonoDepth2 and DepthAnything for self-supervised monocular object depth estimation. The method leverages DepthAnything's pre-trained Vision Transformer as encoder and incorporates GPS loss from G2S to predict accurate metric depth, while integrating YOLOv8 for object detection trained on COCO dataset. This hybrid approach achieves superior performance on the KITTI dataset with improved metrics (abs_rel: 0.101, rmse: 4.579) compared to baseline methods, making it valuable for autonomous vehicles, robotics, augmented reality, and surveillance systems requiring object-aware depth estimation.
 
-## Key Contributions
-
-- **Identity Preservation**: Novel approach to maintain facial identity during attribute editing
-- **Multiple Attributes**: Capability to edit multiple facial attributes simultaneously
-- **Global and Local Learning**: Combination of global edit directions with local adjustments
-- **Computer Vision**: Published in Computer Vision and Image Understanding journal
-
-## Technical Approach
-
-The method employs a sophisticated learning framework that combines global edit directions for overall attribute changes with local adjustments for fine-grained modifications. This dual approach ensures both effective attribute modification and identity preservation.
-
-## Applications
-
-This research has applications in:
-- Digital content creation
-- Privacy-preserving image editing
-- Entertainment industry
-- Computer graphics and animation
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="Facial Attribute Editing Pipeline" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="Identity Preservation Results" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="Multi-Attribute Editing" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Left: Facial attribute editing pipeline showing the global and local learning approach. Middle: Results demonstrating identity preservation across different attribute modifications. Right: Multi-attribute editing capabilities.
-</div>
-
-## Publications
-
-This work resulted in the following publication:
-{% cite mohammadbagheri2024identity %}
+🔗 **[View on GitHub](https://github.com/fardinayar/object_depth_anything)**

@@ -39,7 +39,7 @@ ninja.data = [{
           },
         },{id: "nav-cv",
           title: "cv",
-          description: "This is a description of the page. You can modify it in &#39;_pages/cv.md&#39;. You can also change or remove the top pdf download button.",
+          description: "Computer Vision and AI Researcher specializing in Autonomous Vehicles, LiDAR-Camera Fusion, and Deep Learning. Research Associate at Amirkabir University of Technology.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/cv/";
@@ -443,37 +443,32 @@ ninja.data = [{
             },},{id: "news-new-publication-our-paper-identity-preserving-editing-of-multiple-facial-attributes-by-learning-global-edit-directions-and-local-adjustments-has-been-published-in-computer-vision-and-image-understanding-cviu-volume-246-september-2024-sparkles-smile",
           title: '📚 New Publication! Our paper “Identity-preserving Editing of Multiple Facial Attributes by Learning...',
           description: "",
-          section: "News",},{id: "news-best-paper-award-at-icea2024",
-          title: 'Best Paper Award at ICEA2024',
-          description: "",
-          section: "News",handler: () => {
-              window.location.href = "/news/announcement_2/";
-            },},{id: "news-excited-to-announce-that-our-team-ranked-3rd-in-the-end-to-end-autonomous-driving-through-v2x-cooperation-challenge-at-the-meis-workshop-cvpr2025-this-achievement-showcases-our-expertise-in-autonomous-vehicle-technologies-and-v2x-communication-systems",
+          section: "News",},{id: "news-excited-to-announce-that-our-team-ranked-3rd-in-the-end-to-end-autonomous-driving-through-v2x-cooperation-challenge-at-the-meis-workshop-cvpr2025-this-achievement-showcases-our-expertise-in-autonomous-vehicle-technologies-and-v2x-communication-systems",
           title: '🎉 Excited to announce that our team ranked 3rd in the End-to-End Autonomous...',
           description: "",
-          section: "News",},{id: "projects-lidar-camera-fusion-for-video-panoptic-segmentation",
-          title: 'LiDAR-Camera Fusion for Video Panoptic Segmentation',
-          description: "Novel approach for combining LiDAR and camera data for robust perception in autonomous vehicles",
+          section: "News",},{id: "projects-ssl-depth-self-supervised-depth-estimation-framework",
+          title: 'SSL Depth - Self-Supervised Depth Estimation Framework',
+          description: "A deep learning framework for self-supervised depth estimation with PyTorch Lightning integration",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project/";
-            },},{id: "projects-identity-preserving-facial-attribute-editing",
-          title: 'Identity-Preserving Facial Attribute Editing',
-          description: "Learning global edit directions and local adjustments for multiple facial attributes",
+            },},{id: "projects-object-depth-anything-monocular-object-depth-estimation",
+          title: 'Object Depth Anything - Monocular Object Depth Estimation',
+          description: "Self-supervised monocular object depth estimation combining MonoDepth2 and DepthAnything",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_project/";
-            },},{id: "projects-project-3-with-very-long-name",
-          title: 'project 3 with very long name',
-          description: "a project that redirects to another website",
+            },},{id: "projects-mmgraph-graph-neural-networks-framework",
+          title: 'MMGraph - Graph Neural Networks Framework',
+          description: "A high-level library for training Graph Neural Networks built on PyTorch Geometric and MMEngine",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_project/";
-            },},{id: "projects-project-4",
-          title: 'project 4',
-          description: "another without an image",
+            },},{id: "projects-viser-vehicle-sensor-visualization-tool",
+          title: 'Viser - Vehicle Sensor Visualization Tool',
+          description: "Educational web-based application for visualizing and editing vehicle frames and sensor extrinsics",
           section: "Projects",handler: () => {
               window.location.href = "/projects/4_project/";
-            },},{id: "projects-project-5",
-          title: 'project 5',
-          description: "a project with a background image",
+            },},{id: "projects-tahdig-python-configuration-system",
+          title: 'Tahdig - Python Configuration System',
+          description: "A simple, easy-to-use configuration system for Python applications inspired by Persian cuisine",
           section: "Projects",handler: () => {
               window.location.href = "/projects/5_project/";
             },},{id: "projects-project-6",
